@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Dress_Recommender</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="change_city">Change city</string>
+    <string name="open_weather_maps_app_id">11111</string>
+    <string name="title_activity_dress_display">DressDisplay</string>
+</resources>
