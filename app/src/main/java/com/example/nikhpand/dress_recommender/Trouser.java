@@ -2,8 +2,9 @@ package com.example.nikhpand.dress_recommender;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v4.view.MotionEventCompat;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,24 +17,26 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.BufferedReader;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.StringTokenizer;
 
-import android.widget.AdapterView.OnItemClickListener;
+/**
+ * Created by nikhpand on 3/15/15.
+ */
 
 
-public class DressDisplay extends ActionBarActivity {
+public class Trouser extends ActionBarActivity {
 
-    private final static String STORETEXT="Shirt_4.txt";
+    private final static String STORETEXT="Trouser_4.txt";
+    private static final String DEBUG_TAG = "Swipe Direction :";
     String filePath ;
     FileOutputStream outputStream;
 
@@ -43,7 +46,6 @@ public class DressDisplay extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
 
         Context context = getBaseContext();
         filePath = context.getFilesDir().getPath().toString() + "/" +STORETEXT;
@@ -85,86 +87,46 @@ public class DressDisplay extends ActionBarActivity {
 
 
         Bundle extra = getIntent().getExtras();
-        temp = extra.getDouble("temp_key");
-        Log.d("New_Activity_Temp", String.valueOf(temp));
-        setContentView(R.layout.activity_dress_display);
-//        ImageView imgView=(ImageView) findViewById(R.id.imgView);
-
-//        Drawable drawable  = getResources().getDrawable(R.drawable.fb);
-//        imgView.setImageDrawable(drawable);
-//    //    setContentView(R.layout.activity_dress_display);
+     //   temp = extra.getDouble("temp_key");
+     //   Log.d("New_Activity_Temp", String.valueOf(temp));
+        setContentView(R.layout.activity_trouser);
 
         GridView gridview = (GridView) findViewById(R.id.gridview);
-        // ImageAdapter imageAdapter = new
-        gridview.setAdapter(new ImageAdapter(this));
-//        gridview.setOnTouchListener(onSwipeTouchListener);
+        gridview.setAdapter(new ImageAdapter_t(this));
 
-//        gridview.setOnTouchListener(new OnSwipeTouchListener(context) {
-//            public void onSwipeTop() {
-//                Toast.makeText(DressDisplay.this, "top", Toast.LENGTH_SHORT).show();
-//            }
-//            public void onSwipeRight() {
-//                Toast.makeText(DressDisplay.this, "right", Toast.LENGTH_SHORT).show();
-//            }
-//            public void onSwipeLeft() {
-//                Toast.makeText(DressDisplay.this, "left", Toast.LENGTH_SHORT).show();
-//            }
-//            public void onSwipeBottom() {
-//                Toast.makeText(DressDisplay.this, "bottom", Toast.LENGTH_SHORT).show();
-//            }
-//
-//
-//            public boolean onTouch(View v, MotionEvent event) {
-//                return gestureDetector.onTouchEvent(event);
-//            }
-//        });
-
-
-        gridview.setOnItemClickListener(new OnItemClickListener() {
+        gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(DressDisplay.this, "" + position, Toast.LENGTH_SHORT).show();
-
+                Toast.makeText(Trouser.this, "" + position, Toast.LENGTH_SHORT).show();
                 try {
 
 
-                    if (position == 0) {
-                        Intent itrouser = new Intent(DressDisplay.this, Trouser.class);
-                        startActivity(itrouser);
-                    } else if (position == 1) {
-                        Intent ishirt = new Intent(DressDisplay.this, Shirt.class);
-                        startActivity(ishirt);
-                    }
-                } catch (Exception e){
-                    e.printStackTrace();
-                }
 
-//                try {
-//
-//
-//                    InputStream inputStream = openFileInput(STORETEXT);
-//
-//                    if (inputStream != null) {
-//                        InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
-//                        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-//                        String receiveString = "";
-//                        StringBuilder stringBuilder = new StringBuilder();
-//
-//                        while ((receiveString = bufferedReader.readLine()) != null) {
-//                            stringBuilder.append(receiveString);
-//                        }
-//
-//                        inputStream.close();
-//                        Log.d("NTAG1", stringBuilder.toString());
-//                    }
-//
-//                }catch(Exception e){
-//                    e.printStackTrace();
-//
-//                }
+                    InputStream inputStream = openFileInput(STORETEXT);
+
+                    if (inputStream != null) {
+                        InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+                        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                        String receiveString = "";
+                        StringBuilder stringBuilder = new StringBuilder();
+
+                        while ((receiveString = bufferedReader.readLine()) != null) {
+                            stringBuilder.append(receiveString);
+                        }
+
+                        inputStream.close();
+                        Log.d("NTAG1", stringBuilder.toString());
+                    }
+
+                }catch(Exception e){
+                    e.printStackTrace();
+
+                }
             }
         });
     }
+
+
 
 
     @Override
@@ -190,15 +152,15 @@ public class DressDisplay extends ActionBarActivity {
     }
 }
 
-class ImageAdapter extends BaseAdapter {
+class ImageAdapter_t extends BaseAdapter {
 
-    private final static String STORETEXT="Shirt_4.txt";
+    private final static String STORETEXT="Trouser_4.txt";
     String filePath ;
     FileOutputStream outputStream;
 
     private Context mContext;
 
-    public ImageAdapter(Context c) {
+    public ImageAdapter_t(Context c) {
         mContext = c;
     }
 
@@ -233,7 +195,7 @@ class ImageAdapter extends BaseAdapter {
 
     // references to our images
     private Integer[] mThumbIds = {
-            R.drawable.twitter, R.drawable.android , R.drawable.fb, R.drawable.chrome};
+            R.drawable.chelsea, R.drawable.football , R.drawable.realmadrid, R.drawable.dortmund};
 
 
     public int myNewPos(int position)
@@ -293,3 +255,4 @@ class ImageAdapter extends BaseAdapter {
         }
     }
 };
+

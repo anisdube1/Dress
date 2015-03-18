@@ -31,7 +31,7 @@ import java.util.StringTokenizer;
 import android.widget.AdapterView.OnItemClickListener;
 
 
-public class DressDisplay extends ActionBarActivity {
+public class DressDisplayFemale extends ActionBarActivity {
 
     private final static String STORETEXT="Shirt_4.txt";
     String filePath ;
@@ -87,7 +87,7 @@ public class DressDisplay extends ActionBarActivity {
         Bundle extra = getIntent().getExtras();
         temp = extra.getDouble("temp_key");
         Log.d("New_Activity_Temp", String.valueOf(temp));
-        setContentView(R.layout.activity_dress_display);
+        setContentView(R.layout.activity_dress_display_female);
 //        ImageView imgView=(ImageView) findViewById(R.id.imgView);
 
 //        Drawable drawable  = getResources().getDrawable(R.drawable.fb);
@@ -96,7 +96,7 @@ public class DressDisplay extends ActionBarActivity {
 
         GridView gridview = (GridView) findViewById(R.id.gridview);
         // ImageAdapter imageAdapter = new
-        gridview.setAdapter(new ImageAdapter(this));
+        gridview.setAdapter(new ImageAdapterF(this));
 //        gridview.setOnTouchListener(onSwipeTouchListener);
 
 //        gridview.setOnTouchListener(new OnSwipeTouchListener(context) {
@@ -123,16 +123,16 @@ public class DressDisplay extends ActionBarActivity {
         gridview.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(DressDisplay.this, "" + position, Toast.LENGTH_SHORT).show();
+                Toast.makeText(DressDisplayFemale.this, "" + position, Toast.LENGTH_SHORT).show();
 
                 try {
 
 
                     if (position == 0) {
-                        Intent itrouser = new Intent(DressDisplay.this, Trouser.class);
+                        Intent itrouser = new Intent(DressDisplayFemale.this, TrouserF.class);
                         startActivity(itrouser);
                     } else if (position == 1) {
-                        Intent ishirt = new Intent(DressDisplay.this, Shirt.class);
+                        Intent ishirt = new Intent(DressDisplayFemale.this, ShirtF.class);
                         startActivity(ishirt);
                     }
                 } catch (Exception e){
@@ -190,7 +190,7 @@ public class DressDisplay extends ActionBarActivity {
     }
 }
 
-class ImageAdapter extends BaseAdapter {
+class ImageAdapterF extends BaseAdapter {
 
     private final static String STORETEXT="Shirt_4.txt";
     String filePath ;
@@ -198,7 +198,7 @@ class ImageAdapter extends BaseAdapter {
 
     private Context mContext;
 
-    public ImageAdapter(Context c) {
+    public ImageAdapterF(Context c) {
         mContext = c;
     }
 
@@ -233,7 +233,7 @@ class ImageAdapter extends BaseAdapter {
 
     // references to our images
     private Integer[] mThumbIds = {
-            R.drawable.twitter, R.drawable.android , R.drawable.fb, R.drawable.chrome};
+            R.drawable.femaledress1, R.drawable.femaledress2 , R.drawable.femaledress3, R.drawable.femaledress4};
 
 
     public int myNewPos(int position)

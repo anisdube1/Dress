@@ -1,8 +1,12 @@
 package com.example.nikhpand.dress_recommender;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceActivity;
+import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.text.InputType;
@@ -10,26 +14,60 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.widget.TextView;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity  {
 
+    SharedPreferences sharedpreferences;
+    private static final int RESULT_SETTINGS = 1;
     double temp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(
+                R.layout.activity_main);
+
+      //  showUserSettings();
+
+        sharedpreferences = getSharedPreferences("MyPREFERENCES", Context.MODE_PRIVATE);
+
+
+        if (sharedpreferences.contains("gender"))
+        {
+            Log.d("Print", "anish");
+            Log.d("FINAL OUPUT",sharedpreferences.getString("gender" , "chutiya"));
+          //  Gender.setText(sharedpreferences.getString("gender", ""));
+
+        }
+
+
     }
 
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-       // String change_city = ""Change city;
-        if(item.getItemId() == R.id.change_city){
-            showInputDialog();
+
+        switch (item.getItemId()) {
+
+            case R.id.menu_settings:
+                Intent i = new Intent(this, UserSettingActivity.class);
+                startActivityForResult(i, RESULT_SETTINGS);
+                break;
+            case R.id.change_city:
+                showInputDialog();
+
         }
-        return false;
+
+        return true;
+
     }
+
+
+
+
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -72,7 +110,7 @@ public class MainActivity extends ActionBarActivity {
       }
         Log.d("Temp", String.valueOf(temp));
 
-        Intent i = new Intent(this , DressDisplay.class);
+        Intent i = new Intent(this , WeatherDisplay.class);
         i.putExtra("temp_key" , temp);
         startActivity(i);
     }

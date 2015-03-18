@@ -23,6 +23,38 @@
             android:name=".DressDisplay"
             android:label="@string/title_activity_dress_display" >
         </activity>
+        <activity
+            android:name=".Trouser"
+            android:label="@string/title_activity_trouser_display" >
+        </activity>
+        <activity
+            android:name=".Shirt"
+            android:label="@string/title_activity_shirt" >
+        </activity>
+        <activity
+            android:name=".WeatherDisplay"
+            android:label="@string/title_activity_weather_display" >
+        </activity>
+        <activity
+            android:name=".UserSettingActivity"
+            android:label="Settings" >
+        </activity>
+        <activity
+            android:name=".DressDisplayFemale"
+            android:label="@string/title_activity_dress_display_female" >
+        </activity>
+        <activity
+            android:name=".TrouserF"
+            android:label="@string/title_activity_trouser_f" >
+        </activity>
+        <activity
+            android:name=".ShirtF"
+            android:label="@string/title_activity_shirt_f" >
+        </activity>
+        <activity
+            android:name=".VideoViewActivity"
+            android:label="@string/title_activity_vdeo_view" >
+        </activity>
     </application>
 
 </manifest>
