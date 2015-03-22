@@ -50,7 +50,10 @@ public class WeatherDisplay extends ActionBarActivity {
         main_desc = extra.getString("maindesc_key");
         icon = extra.getString("icon_key");
 
-   //     icon = "13d";
+
+
+        icon = "10n";
+
         //If icon is rainy
         if (icon.equals("10n")) {
             setContentView(R.layout.activity_weather_display_rain);

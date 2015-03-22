@@ -170,7 +170,7 @@ public class DressDisplayFemale extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-
+        getMenuInflater().inflate(R.menu.menu_dress_display, menu);
         return true;
     }
 
@@ -179,6 +179,13 @@ public class DressDisplayFemale extends ActionBarActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
+
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
+        }
 
 
         return super.onOptionsItemSelected(item);
@@ -214,7 +221,11 @@ class ImageAdapterF extends BaseAdapter {
         ImageView imageView;
         if (convertView == null) {  // if it's not recycled, initialize some attributes
             imageView = new ImageView(mContext);
+
             imageView.setLayoutParams(new GridView.LayoutParams(300, 300));
+
+            imageView.setLayoutParams(new GridView.LayoutParams(85, 85));
+
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             imageView.setPadding(8, 8, 8, 8);
         } else {
