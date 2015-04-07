@@ -2,6 +2,7 @@ package com.example.nikhpand.dress_recommender;
 
 import android.content.Context;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v4.view.MotionEventCompat;
 import android.support.v7.app.ActionBarActivity;
@@ -35,7 +36,7 @@ import java.util.StringTokenizer;
 
 public class TrouserF extends ActionBarActivity {
 
-    private final static String STORETEXT="Trouser_4.txt";
+    private final static String STORETEXT="Trouser_4f.txt";
     private static final String DEBUG_TAG = "Swipe Direction :";
     String filePath ;
     FileOutputStream outputStream;
@@ -91,8 +92,31 @@ public class TrouserF extends ActionBarActivity {
         //   Log.d("New_Activity_Temp", String.valueOf(temp));
         setContentView(R.layout.activity_trouser_f);
 
+//        GridView gridview = (GridView) findViewById(R.id.gridview);
+
+//        Thread thread = new Thread() {
+//
+//            public void run() {
+//                myplayer[0] = MediaPlayer.create(WeatherDisplay.this, R.raw.rain);
+//                myplayer[0].start();
+//            }
+//
+//        };
+//        thread.start();
+
         GridView gridview = (GridView) findViewById(R.id.gridview);
-        gridview.setAdapter(new ImageAdapter_ft(this));
+//        gridview.setAdapter(new ImageAdapter_t(this));
+
+
+
+        Thread thread = new Thread() {
+
+            public void run() {
+                GridView gridview = (GridView) findViewById(R.id.gridview);
+                gridview.setAdapter(new ImageAdapter_ft(TrouserF.this));
+            }
+        };
+        thread.start();
 
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -154,7 +178,7 @@ public class TrouserF extends ActionBarActivity {
 
 class ImageAdapter_ft extends BaseAdapter {
 
-    private final static String STORETEXT="Trouser_4.txt";
+    private final static String STORETEXT="TrouserF.txt";
     String filePath ;
     FileOutputStream outputStream;
 
@@ -181,7 +205,7 @@ class ImageAdapter_ft extends BaseAdapter {
         ImageView imageView;
         if (convertView == null) {  // if it's not recycled, initialize some attributes
             imageView = new ImageView(mContext);
-            imageView.setLayoutParams(new GridView.LayoutParams(85, 85));
+            imageView.setLayoutParams(new GridView.LayoutParams(350, 350));
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             imageView.setPadding(8, 8, 8, 8);
         } else {
@@ -195,7 +219,8 @@ class ImageAdapter_ft extends BaseAdapter {
 
     // references to our images
     private Integer[] mThumbIds = {
-            R.drawable.femaletrouser1, R.drawable.femaletrouser2 , R.drawable.femaletrouser3, R.drawable.femaletrouser4};
+            R.drawable.womens_trouser_1, R.drawable.womens_trouser_2 , R.drawable.womens_trouser_3, R.drawable.womens_trouser_3 };
+           /// R.drawable.dortmund, R.drawable.ball , R.drawable.bat, R.drawable.chelsea};
 
 
     public int myNewPos(int position)

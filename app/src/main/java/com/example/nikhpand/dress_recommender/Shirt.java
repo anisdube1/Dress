@@ -98,6 +98,8 @@ public class Shirt extends ActionBarActivity {
         setContentView(R.layout.activity_shirt);
 
         GridView gridview = (GridView) findViewById(R.id.gridview);
+
+
         gridview.setAdapter(new ImageAdapter_s(this));
 
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -160,7 +162,7 @@ public class Shirt extends ActionBarActivity {
 
 class ImageAdapter_s extends BaseAdapter {
 
-    private final static String STORETEXT="Shirt_4.txt";
+    private final static String STORETEXT="ShirtM.txt";
     String filePath ;
     FileOutputStream outputStream;
 
@@ -187,7 +189,7 @@ class ImageAdapter_s extends BaseAdapter {
         ImageView imageView;
         if (convertView == null) {  // if it's not recycled, initialize some attributes
             imageView = new ImageView(mContext);
-            imageView.setLayoutParams(new GridView.LayoutParams(85, 85));
+            imageView.setLayoutParams(new GridView.LayoutParams(80, 80));
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             imageView.setPadding(8, 8, 8, 8);
         } else {
@@ -197,11 +199,15 @@ class ImageAdapter_s extends BaseAdapter {
         int pos = myNewPos(position);
         imageView.setImageResource(mThumbIds[pos]);
         return imageView;
+
+
+
     }
 
     // references to our images
     private Integer[] mThumbIds = {
-            R.drawable.ball, R.drawable.bat , R.drawable.gloves , R.drawable.india};
+            R.drawable.men_shirt_4, R.drawable.men_shirt_2 , R.drawable.men_shirt_2 , R.drawable.men_shirt_4};
+          //  R.drawable.dortmund, R.drawable.ball , R.drawable.bat, R.drawable.chelsea };
 
 
     public int myNewPos(int position)

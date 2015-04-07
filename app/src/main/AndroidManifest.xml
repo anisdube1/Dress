@@ -9,10 +9,11 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:theme="@style/AppTheme" >
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name" >
+            android:label="Gear Up" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -51,6 +52,26 @@
             android:name=".ShirtF"
             android:label="@string/title_activity_shirt_f" >
         </activity>
+        <activity
+            android:name=".Outer"
+            android:label="Outer Wear" >
+        </activity>
+        <activity
+            android:name=".Foot"
+            android:label="FootWear" >
+        </activity>
+        <activity
+            android:name=".Footf"
+            android:label="FootWear" >
+        </activity>
+        <activity
+            android:name=".OuterF"
+            android:label="OuterWear" >
+        </activity>
+
+
+
+
         <activity
             android:name=".VideoViewActivity"
             android:label="@string/title_activity_vdeo_view" >

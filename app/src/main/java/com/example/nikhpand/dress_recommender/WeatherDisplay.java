@@ -52,7 +52,7 @@ public class WeatherDisplay extends ActionBarActivity {
 
 
 
-        icon = "10n";
+        icon = "02d";
 
         //If icon is rainy
         if (icon.equals("10n")) {
@@ -110,6 +110,12 @@ public class WeatherDisplay extends ActionBarActivity {
         else if (icon.equals("13n"))
         {
             setContentView(R.layout.activity_weather_display_night_snow);
+            imgView = (ImageView) findViewById(R.id.condIcon);
+            imgView.setImageResource(R.drawable.n13);
+        }
+        else if (icon.equals("02d") || icon.equals("04d"))
+        {
+            setContentView(R.layout.activity_weather_display_cloudy);
             imgView = (ImageView) findViewById(R.id.condIcon);
             imgView.setImageResource(R.drawable.n13);
         }

@@ -134,6 +134,12 @@ public class DressDisplayFemale extends ActionBarActivity {
                     } else if (position == 1) {
                         Intent ishirt = new Intent(DressDisplayFemale.this, ShirtF.class);
                         startActivity(ishirt);
+                    } else if (position == 2) {
+                        Intent iouter = new Intent(DressDisplayFemale.this, OuterF.class);
+                        startActivity(iouter);
+                    } else if (position == 3) {
+                        Intent ifoot = new Intent(DressDisplayFemale.this, Footf.class);
+                        startActivity(ifoot);
                     }
                 } catch (Exception e){
                     e.printStackTrace();

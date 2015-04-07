@@ -51,7 +51,7 @@ public class MainActivity extends ActionBarActivity  {
         if (sharedpreferences.contains("gender"))
         {
             Log.d("Print", "anish");
-            Log.d("FINAL OUPUT",sharedpreferences.getString("gender" , "chutiya"));
+            Log.d("FINAL OUPUT",sharedpreferences.getString("gender" , ""));
           //  Gender.setText(sharedpreferences.getString("gender", ""));
 
         }

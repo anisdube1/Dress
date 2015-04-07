@@ -35,7 +35,7 @@ import java.util.StringTokenizer;
 
 public class ShirtF extends ActionBarActivity {
 
-    private final static String STORETEXT="ShirtF_4.txt";
+    private final static String STORETEXT="ShirtF_4f.txt";
     private static final String DEBUG_TAG = "Swipe Direction :";
     String filePath ;
     FileOutputStream outputStream;
@@ -160,7 +160,7 @@ public class ShirtF extends ActionBarActivity {
 
 class ImageAdapter_f extends BaseAdapter {
 
-    private final static String STORETEXT="Shirt_4.txt";
+    private final static String STORETEXT="ShirtF.txt";
     String filePath ;
     FileOutputStream outputStream;
 
@@ -187,7 +187,7 @@ class ImageAdapter_f extends BaseAdapter {
         ImageView imageView;
         if (convertView == null) {  // if it's not recycled, initialize some attributes
             imageView = new ImageView(mContext);
-            imageView.setLayoutParams(new GridView.LayoutParams(85, 85));
+            imageView.setLayoutParams(new GridView.LayoutParams(350, 350));
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             imageView.setPadding(8, 8, 8, 8);
         } else {
@@ -201,7 +201,7 @@ class ImageAdapter_f extends BaseAdapter {
 
     // references to our images
     private Integer[] mThumbIds = {
-            R.drawable.femaleshirt1, R.drawable.femaleshirt2 , R.drawable.femaleshirt3 , R.drawable.femaleshirt4};
+            R.drawable.womens_shirt_3, R.drawable.womens_shirt_4 , R.drawable.womens_shirt_4 , R.drawable.womens_shirt_5};
 
 
     public int myNewPos(int position)

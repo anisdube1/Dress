@@ -154,7 +154,7 @@ public class Trouser extends ActionBarActivity {
 
 class ImageAdapter_t extends BaseAdapter {
 
-    private final static String STORETEXT="Trouser_4.txt";
+    private final static String STORETEXT="TrouserM.txt";
     String filePath ;
     FileOutputStream outputStream;
 
@@ -181,7 +181,7 @@ class ImageAdapter_t extends BaseAdapter {
         ImageView imageView;
         if (convertView == null) {  // if it's not recycled, initialize some attributes
             imageView = new ImageView(mContext);
-            imageView.setLayoutParams(new GridView.LayoutParams(85, 85));
+            imageView.setLayoutParams(new GridView.LayoutParams(80, 80));
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             imageView.setPadding(8, 8, 8, 8);
         } else {
@@ -195,7 +195,9 @@ class ImageAdapter_t extends BaseAdapter {
 
     // references to our images
     private Integer[] mThumbIds = {
-            R.drawable.chelsea, R.drawable.football , R.drawable.realmadrid, R.drawable.dortmund};
+            R.drawable.men_trousers_1, R.drawable.men_trousers_2 , R.drawable.men_trousers_3, R.drawable.men_trousers_3};
+
+          //  R.drawable.dortmund, R.drawable.ball , R.drawable.bat, R.drawable.chelsea };
 
 
     public int myNewPos(int position)
